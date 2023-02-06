@@ -9,7 +9,7 @@
 
   {
     "model": "iimproveapi.tag",
-    "pk": 1,
+    "pk": 2,
     "fields": {
       "title": "Mindfulness"
     }
@@ -17,7 +17,7 @@
 
   {
     "model": "iimproveapi.tag",
-    "pk": 1,
+    "pk": 3,
     "fields": {
       "title": "MVP"
     }
