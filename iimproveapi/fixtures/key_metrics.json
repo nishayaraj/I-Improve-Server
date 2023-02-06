@@ -1,0 +1,32 @@
+[
+  {
+    "model": "iimproveapi.keymetrics",
+    "pk": 1,
+    "fields": {
+      "goal": 1,
+      "title": "Eat healthy 5 days a week",
+      "status": false
+    }
+  },
+
+  {
+    "model": "iimproveapi.keymetrics",
+    "pk": 2,
+    "fields": {
+      "goal": 1,
+      "title": "Exercise 4 days a week",
+      "status": false
+    }
+  },
+
+  {
+    "model": "iimproveapi.keymetrics",
+    "pk": 3,
+    "fields": {
+      "goal": 2,
+      "title": "Create structure in a week",
+      "status": false
+    }
+    }
+
+]

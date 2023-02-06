@@ -1,0 +1,10 @@
+[
+  {
+    "model": "iimproveapi.user",
+    "pk": 1,
+    "fields": {
+        "uid": "gXGA7fbiY4XmBITLAlSHHI02OHg2",
+        "name": "Nish"
+    }
+  }
+]
