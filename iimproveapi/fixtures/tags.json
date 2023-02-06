@@ -1,0 +1,25 @@
+[
+  {
+    "model": "iimproveapi.tag",
+    "pk": 1,
+    "fields": {
+      "title": "Health"
+    }
+  },
+
+  {
+    "model": "iimproveapi.tag",
+    "pk": 1,
+    "fields": {
+      "title": "Mindfulness"
+    }
+  },
+
+  {
+    "model": "iimproveapi.tag",
+    "pk": 1,
+    "fields": {
+      "title": "MVP"
+    }
+  }
+]

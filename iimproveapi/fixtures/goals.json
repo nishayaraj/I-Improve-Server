@@ -1,0 +1,23 @@
+// [
+//   {
+//     "model": "iimproveapi.goal",
+//     "pk": 1,
+//     "fields": {
+//       "user": 1,
+//       "title": "Mental Health",
+//       "tag": "",
+//       "due": "2023-10-08"
+//     }
+//   },
+//   {
+//     "model": "iimproveapi.goal",
+//     "pk": 1,
+//     "fields": {
+//       "user": 1,
+//       "title": "Capstone goals",
+//       "tag": "",
+//       "due": "2023-03-06"
+//     }
+//     }
+
+// ]
