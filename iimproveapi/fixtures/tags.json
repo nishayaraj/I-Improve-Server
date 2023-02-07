@@ -3,6 +3,7 @@
     "model": "iimproveapi.tag",
     "pk": 1,
     "fields": {
+      "user": 1,
       "title": "Health"
     }
   },
@@ -11,6 +12,7 @@
     "model": "iimproveapi.tag",
     "pk": 2,
     "fields": {
+      "user": 1,
       "title": "Mindfulness"
     }
   },
@@ -19,6 +21,7 @@
     "model": "iimproveapi.tag",
     "pk": 3,
     "fields": {
+      "user": 1,
       "title": "MVP"
     }
   }
