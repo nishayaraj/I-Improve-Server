@@ -2,7 +2,7 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from iimproveapi.models import Tag
+from iimproveapi.models import Tag, User
 
 class TagsView(ViewSet):
     """iimproveapi tags view"""
@@ -14,31 +14,47 @@ class TagsView(ViewSet):
         """
         try:
             tag = Tag.objects.get(pk=pk)
+
             serializer = TagSerializer(tag)
-            return Response(serializer.data)
+            serial_tag = serializer.data
+            serial_tag['userId'] = serial_tag.pop('user_id')
+            return Response(serial_tag)
+
         except Tag.DoesNotExist as ex:
-            return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+            return Response({'message': 'Unable to fetch tag data. '
+                             + ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
     def list(self, request):
-        """Handle GET requests to get all tag types
-        Returns:
-            Response -- JSON serialized list of tag types
-        """
-
-        tags = Tag.objects.all()
-        serializer = TagSerializer(tags, many=True)
-        return Response(serializer.data)
+        """get my tags"""
+        try:
+            user_id = request.GET.get("userId")
+            tags = Tag.objects.filter(user_id=user_id).values()
+            serializer = TagSerializer(tags, many=True)
+            serial_tag = serializer.data
+            for tag in serial_tag:
+                tag['userId'] = tag.pop('user_id')
+            return Response(serial_tag)
+        except Tag.DoesNotExist as ex:
+            return Response({'message': 'Unable to get my tag data. '
+                             + ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
     def create(self, request):
-        """Handle POST operations
-        Returns
-        Response -- JSON serialized tag instance
-        """
-        tag = Tag.objects.create(
-          title=request.data["title"]
-        )
-        serializer = TagSerializer(tag)
-        return Response(serializer.data)
+        '''handels creation of my tags'''
+        user_id = request.data['userId']
+
+        try:
+            User.objects.get(id = user_id)
+            tag = Tag.objects.create(
+            title = request.data['title'],
+            user_id = user_id
+            )
+
+            serializer = TagSerializer(tag)
+
+            return Response(serializer.data)
+        except User.DoesNotExist as ex:
+            return Response({'message': 'Unable to create tag. '
+                             + ex.args[0]}, status=status.HTTP_401_UNAUTHORIZED)
 
     def destroy(self, request, pk):
         """Handle Delete
@@ -52,4 +68,4 @@ class TagSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Tag
-        fields = ('id', 'title')
+        fields = ('id', 'title', 'user_id')
