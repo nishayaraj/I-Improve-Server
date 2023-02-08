@@ -18,10 +18,11 @@ from django.conf.urls import include
 from rest_framework import routers
 from django.contrib import admin
 from django.urls import path
-from iimproveapi.views import register_user, check_user, TagsView
+from iimproveapi.views import register_user, check_user, TagsView, KeyMetricsView
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'tags', TagsView, 'tag')
+router.register(r'keymetrics', KeyMetricsView, 'keymetric')
 
 urlpatterns = [
     path('register', register_user),
