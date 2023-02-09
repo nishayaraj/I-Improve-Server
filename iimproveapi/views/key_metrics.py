@@ -1,5 +1,3 @@
-'''Comments module for request handeling'''
-
 from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
@@ -35,23 +33,8 @@ class KeyMetricsView(ViewSet):
 
         return Response(serial_key_metrics)
 
-
-    # def create(self, request):
-    #     '''handels creation of key metrics by goalId'''
-    #     goal_id = Goal.objects.get(pk=request.data['goalId'])
-
-    #     key_metrics = KeyMetrics.objects.create(
-    #       goal_id = goal_id,
-    #       title = request.data['title'],
-    #       status = request.data['status']
-    #     )
-
-    #     serializer = KeyMetricsSerializer(key_metrics)
-
-    #     return Response(serializer.data)
-
     def create(self, request):
-        '''handels creation of my journals'''
+        '''handels creation of key metrics'''
         goal_id = request.data['goalId']
 
         try:
