@@ -19,19 +19,15 @@ class KeyMetricsView(ViewSet):
         return Response(serial_key_metrics)
 
     def list(self, request):
-        '''handels list by goal id'''
-        key_metrics = KeyMetrics.objects.all()
+        '''handles list by goal id'''
+        goal_id = request.GET.get("goalId")
+        key_metrics = KeyMetrics.objects.filter(goal_id=goal_id)
 
-        goal_id = request.query_params.get('goalId', None)
-        if goal_id is not None:
-            key_metrics = key_metrics.filter(goal_id = goal_id)
-
-        serializer = KeyMetricsSerializer(key_metrics, many=True)
-        serial_key_metrics = serializer.data
-        for key_metrics in serial_key_metrics:
+        serialized_key_metrics = (KeyMetricsSerializer(key_metrics, many=True)).data
+        for key_metrics in serialized_key_metrics:
             key_metrics['goalId'] = key_metrics.pop('goal_id')
 
-        return Response(serial_key_metrics)
+        return Response(serialized_key_metrics)
 
     def create(self, request):
         '''handels creation of key metrics'''
