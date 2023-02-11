@@ -93,35 +93,35 @@ class GoalsView(ViewSet):
         serializer = GoalSerializer(goal)
         return Response(serializer.data)
 
-    # def update(self, request, pk):
-    #     """Handle PUT requests for goals
+    def update(self, request, pk):
+        """Handle PUT requests for goals
 
-    #     Returns:
-    #     Response -- Empty body with 204 status code
-    #     """
-    #     try:
-    #         goal = Goal.objects.get(pk=pk)
-    #         goal.title = request.data['title']
-        #     goal.due = request.data['due']
+        Returns:
+        Response -- Empty body with 204 status code
+        """
+        try:
+            goal = Goal.objects.get(pk=pk)
+            goal.title = request.data['title']
+            goal.due = request.data['due']
 
-        #     #capture tag types from form and create them
-        #     tags_ids = request.data['tags']
+            #capture tag types from form and create them
+            tags_ids = request.data['tags']
 
-        #     tags = [Tag.objects.get(pk=tag_id) for tag_id in tags_ids]
+            tags = [Tag.objects.get(pk=tag_id) for tag_id in tags_ids]
 
-        #     existing_goal_tags = GoalTag.objects.filter(goal_id=pk)
-        #     existing_goal_tags.delete()
+            existing_goal_tags = GoalTag.objects.filter(goal_id=pk)
+            existing_goal_tags.delete()
 
-        #     for tag in tags:
-        #         goal_tag = GoalTag(tag=tag, goal=goal)
-        #         goal_tag.save()
+            for tag in tags:
+                goal_tag = GoalTag(tag=tag, goal=goal)
+                goal_tag.save()
 
-        #     goal.save()
+            goal.save()
 
-        #     return Response(None, status=status.HTTP_204_NO_CONTENT)
-        # except Goal.DoesNotExist as ex:
-        #     return Response({'message': 'Unable to update goal data. '
-        #                      + ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+            return Response(None, status=status.HTTP_204_NO_CONTENT)
+        except Goal.DoesNotExist as ex:
+            return Response({'message': 'Unable to update goal data. '
+                             + ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
 
     def destroy(self, request, pk):
         '''Delete request for goal'''
