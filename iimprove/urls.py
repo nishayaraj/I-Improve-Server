@@ -18,9 +18,10 @@ from django.conf.urls import include
 from rest_framework import routers
 from django.contrib import admin
 from django.urls import path
-from iimproveapi.views import register_user, check_user, TagsView, KeyMetricsView, RetroView
+from iimproveapi.views import register_user,check_user, GoalsView,TagsView,KeyMetricsView,RetroView
 
 router = routers.DefaultRouter(trailing_slash=False)
+router.register(r'goals', GoalsView, 'goal')
 router.register(r'tags', TagsView, 'tag')
 router.register(r'keymetrics', KeyMetricsView, 'keymetric')
 router.register(r'retros', RetroView, 'retro')
