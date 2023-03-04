@@ -16,13 +16,3 @@ class Goal(models.Model):
     @tags_on_goal.setter
     def tags_on_goal(self, value):
         self.__tags_on_goal=value
-
-    # @property
-    # def key_metrics_on_goal(self):
-    #     """using the decorator to access and set key metrics in goal
-    #     """
-    #     return self.__key_metrics_on_goal
-
-    # @key_metrics_on_goal.setter
-    # def key_metrics_on_goal(self, value):
-    #     self.__key_metrics_on_goal=value

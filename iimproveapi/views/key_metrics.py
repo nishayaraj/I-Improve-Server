@@ -48,6 +48,21 @@ class KeyMetricsView(ViewSet):
             return Response({'message': 'Unable to create key metric. '
                              + ex.args[0]}, status=status.HTTP_401_UNAUTHORIZED)
 
+    def update(self, request, pk):
+        """Handle PUT requests for keyMetrics
+
+        Returns:
+        Response -- Empty body with 204 status code
+        """
+
+        key_metrics = KeyMetrics.objects.get(pk=pk)
+        key_metrics.title = request.data['title']
+        key_metrics.status = request.data['status']
+
+        key_metrics.save()
+
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+
     def destroy(self, request, pk):
         '''handels delete request for key metrics'''
 
