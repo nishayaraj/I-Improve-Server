@@ -67,15 +67,13 @@ class RetroView(ViewSet):
             return Response({'message': 'Unable to create retro. '
                              + ex.args[0]}, status=status.HTTP_401_UNAUTHORIZED)
 
-    # Future proofing for delete
+    def destroy(self, request, pk):
+        '''handels delete request for retros'''
 
-    # def destroy(self, request, pk):
-    #     '''handels delete request for retros'''
+        retro = Retro.objects.get(pk=pk)
+        retro.delete()
 
-    #     retro = Retro.objects.get(pk=pk)
-    #     retro.delete()
-
-    #     return Response(None, status=status.HTTP_204_NO_CONTENT)
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 class RetroSerializer(serializers.ModelSerializer):
     '''JSON Serializer'''
