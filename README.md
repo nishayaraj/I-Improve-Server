@@ -54,7 +54,7 @@ python manage.py makemigrations iimproveapi
 python manage.py migrate
 ```
 6. Seeding the database
-- Option 1
+- **Option 1**
   - Create a file called seed.sh at the root level of the Project
   - Add the following commands in the file
 
@@ -78,7 +78,7 @@ chmod +x seed.sh
 ./seed.sh
 ```
 
-- Option 2
+- **Option 2**
  - Another option is to run the following commands **one by one** in the terminal
  ```bash
      python manage.py loaddata users
