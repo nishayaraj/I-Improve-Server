@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-3x_pb)us^o3%y-^qyfuli2_pt_d08=lr6bphwhd0opey3#04l^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    # 'I-Improve-Server-dev.us-east-1.elasticbeanstalk.com',
+    # 'I-Improve-Server-dev2.us-east-1.elasticbeanstalk.com',
+    # '127.0.0.1'
+]
 
 
 # Application definition
@@ -44,7 +48,8 @@ INSTALLED_APPS = [
 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
-    'http://127.0.0.1:3000'
+    'http://127.0.0.1:3000',
+    'https://i-improve.nishaya-raj.net'
 )
 
 MIDDLEWARE = [
