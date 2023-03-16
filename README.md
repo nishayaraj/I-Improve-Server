@@ -1,7 +1,8 @@
 # I-Improve: Server
+### i-improve in action: https://www.loom.com/share/3cd63fe91e7f40919020f7cee7de19f3
 I-Improve is a web application designed to provide users with a personalized and accountable approach to goal tracking. In a market flooded with generic goal-tracking apps, I-Improve aims to offer a unique experience that encourages users to take ownership of their goals.
 
-The app uses modern web development technologies such as HTML, CSS, JavaScript and JReact on the front-end, while the back-end is powered by Python, Django and SQLite. The user interface is designed to be intuitive and user-friendly, making it easy for users to navigate and use the app.
+The app uses modern web development technologies such as HTML, CSS, JavaScript and React on the front-end, while the back-end is powered by Python, Django and SQLite. The user interface is designed to be intuitive and user-friendly, making it easy for users to navigate and use the app.
 
 ## Project Overview
 Using I-Improve, users can create, update, and delete their goals, along with adding key metrics to break down their targets. Once the due date arrives, the app prompts users to do a retrospective analysis. This analysis helps users identify what went right, what went wrong, and create an action plan based on the findings.
