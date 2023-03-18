@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+import django_on_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,9 +28,11 @@ SECRET_KEY = 'django-insecure-3x_pb)us^o3%y-^qyfuli2_pt_d08=lr6bphwhd0opey3#04l^
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    # 'I-Improve-Server-dev.us-east-1.elasticbeanstalk.com',
-    # 'I-Improve-Server-dev2.us-east-1.elasticbeanstalk.com',
-    # '127.0.0.1'
+    'I-Improve-Server-dev.us-east-1.elasticbeanstalk.com',
+    'I-Improve-Server-dev2.us-east-1.elasticbeanstalk.com',
+    '127.0.0.1',
+    '127.0.0.0',
+    'localhost'
 ]
 
 
@@ -135,3 +139,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = "/static/"
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
+django_on_heroku.settings(locals())
