@@ -1,5 +1,5 @@
 # I-Improve: Server
-### i-improve in action: https://www.loom.com/share/3cd63fe91e7f40919020f7cee7de19f3
+### [i-improve in action](https://www.loom.com/share/3cd63fe91e7f40919020f7cee7de19f3)
 
 I-Improve is a web application designed to provide users with a personalized and accountable approach to goal tracking. In a market flooded with generic goal-tracking apps, I-Improve aims to offer a unique experience that encourages users to take ownership of their goals.
 
